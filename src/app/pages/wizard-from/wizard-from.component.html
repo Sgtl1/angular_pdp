@@ -1,0 +1,49 @@
+<div class="form-container">
+  <h2>Create a Wizard</h2>
+  <form [formGroup]="wizardForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input id="firstName" formControlName="firstName" type="text" />
+      <small *ngIf="wizardForm.get('firstName')?.hasError('noNumbers') && wizardForm.get('firstName')?.invalid && wizardForm.get('firstName')?.touched">
+        First name is required, must be at least 2 characters and has no numbers.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input id="lastName" formControlName="lastName" type="text" />
+      <small *ngIf="wizardForm.get('lastName')?.hasError('noNumbers') && wizardForm.get('lastName')?.invalid && wizardForm.get('lastName')?.touched">
+        Last name is required, must be at least 2 characters and has no numbers
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="house">House</label>
+      <select id="house" formControlName="house">
+        <option value="" disabled>Select a House</option>
+        <option value="Gryffindor">Gryffindor</option>
+        <option value="Hufflepuff">Hufflepuff</option>
+        <option value="Ravenclaw">Ravenclaw</option>
+        <option value="Slytherin">Slytherin</option>
+      </select>
+      <small *ngIf="wizardForm.get('house')?.invalid && wizardForm.get('house')?.touched">
+        Please select a house.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input id="age" formControlName="age" type="number" />
+      <small *ngIf="wizardForm.get('age')?.invalid && wizardForm.get('age')?.touched">
+        Age must be a valid number between 0 and 200.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="skills">Skills (Optional)</label>
+      <textarea id="skills" formControlName="skills"></textarea>
+    </div>
+
+    <button type="submit" [disabled]="wizardForm.invalid">Submit</button>
+  </form>
+</div>

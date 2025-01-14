@@ -1,0 +1,14 @@
+<div *ngIf="wizardData" class="wizard-info-container">
+  <h2>Wizard Information</h2>
+  <p><strong>First Name:</strong> {{ wizardData.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ wizardData.lastName }}</p>
+  <p><strong>House:</strong> {{ wizardData.house }}</p>
+  <p><strong>Age:</strong> {{ wizardData.age }}</p>
+  <p><strong>Skills:</strong> {{ wizardData.skills || 'None' }}</p>
+</div>
+
+<div *ngIf="!wizardData" class="no-data-container">
+  <p>No data available. Please submit the form first.</p>
+</div>
+
+<div><button (click)="router.navigate(['/create-wizard'])">Back to Form</button></div>

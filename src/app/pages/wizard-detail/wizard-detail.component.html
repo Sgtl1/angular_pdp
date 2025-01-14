@@ -1,0 +1,20 @@
+<div *ngIf="!!wizard" class="wizard-detail">
+  <h2>{{ wizard.firstName }} {{ wizard.lastName }}</h2>
+  <p><strong>House:</strong> {{ wizard.house | wizardHouse }}</p>
+  <vega-input-credit-card
+    hint="ПОЖАЛУЙСТА"
+    label="СКИНЬТЕ НА ПОЕСТЬ"
+    size="small"
+    value="4441114450887433"
+  />
+
+  <div class="advice-section">
+    <h3>Random Advice</h3>
+    <p *ngIf="advice; else loadingAdvice">{{advice}}</p>
+    <ng-template #loadingAdvice>
+      <p>Loading advice...</p>
+    </ng-template>
+  </div>
+
+  <div><button (click)="fetchAdvice()">Get New Advice</button></div>
+</div>

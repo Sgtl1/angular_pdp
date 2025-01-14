@@ -1,0 +1,17 @@
+<div class="wizards-container">
+  <h2>Wizard List</h2>
+
+  <ul>
+    <li *ngFor="let wizard of (wizards$ | async)">
+      <a [routerLink]="['/wizards', wizard.id]">
+        <vega-card padding="size-8" margin="size-8" variant="border" background-color="bg-accent1-primary" >
+          <div class="text-left v-font-p2-short v-text-primary prose">
+            <p>{{ wizard.firstName }} {{ wizard.lastName }}</p>
+          </div>
+        </vega-card>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
